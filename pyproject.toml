@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "expert-learning"
+version = "0.1.0"
+description = "Demo of the experts package."
+authors = ["Matthew Henderson <matthew.james.henderson@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+experts = "^0.1.1"
+pandas = "^2.2.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
