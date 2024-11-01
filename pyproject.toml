@@ -11,6 +11,8 @@ package-mode = false
 python = "^3.10"
 experts = "^0.1.1"
 pandas = "^2.2.3"
+seaborn = "^0.13.2"
+matplotlib = "^3.9.2"
 
 
 [build-system]
