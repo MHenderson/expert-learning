@@ -1,7 +1,9 @@
 import experts
 
 import numpy as np
+import matplotlib.pyplot as plt
 import pandas as pd
+import seaborn as sns
 
 np.random.seed(42)
 
@@ -18,3 +20,7 @@ A1 = experts.VectorExpertsProblem(E1, y1)
 A1.mixture(0.01)
 
 print(A1.learnerLossVector)
+
+sns.relplot(x = range(10), y = A1.learnerLossVector, kind = "line")
+
+plt.savefig("png/learner-loss.png")
