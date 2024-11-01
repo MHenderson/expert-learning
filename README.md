@@ -10,3 +10,7 @@ Demos of the experts package.
 
 ![](png/best-expert-loss.png)
 
+## Cumulative loss
+
+![](png/cumulative-loss.png)
+

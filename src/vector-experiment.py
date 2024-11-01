@@ -19,8 +19,6 @@ A1 = experts.VectorExpertsProblem(E1, y1)
 
 A1.mixture(0.01)
 
-print(A1.learnerLossVector)
-
 sns.relplot(x = range(10), y = A1.learnerLossVector, kind = "line")
 
 plt.savefig("png/learner-loss.png")
@@ -41,3 +39,17 @@ df_long = pd.melt(df, ['time'])
 sns.relplot(x = "time", y = "value", hue = "variable", kind = "line", data = df_long)
 
 plt.savefig("png/best-expert-loss.png")
+
+df_cum = pd.DataFrame(
+    dict(
+                    time = np.arange(10),
+              total_loss = A1.learnerLossVector.cumsum(),
+        best_expert_loss = A1.expertsLossMatrix[best_expert_index, :].cumsum()
+        )
+    )
+
+df_cum_long = pd.melt(df_cum, ['time'])
+
+sns.relplot(x = "time", y = "value", hue = "variable", kind = "line", data = df_cum_long)
+
+plt.savefig("png/cumulative-loss.png")
