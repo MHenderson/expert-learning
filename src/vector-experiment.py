@@ -24,3 +24,20 @@ print(A1.learnerLossVector)
 sns.relplot(x = range(10), y = A1.learnerLossVector, kind = "line")
 
 plt.savefig("png/learner-loss.png")
+
+expert_losses = np.sum(A1.expertsLossMatrix, axis = 1)
+best_expert_index = np.argmin(expert_losses)
+
+df = pd.DataFrame(
+    dict(
+        time = np.arange(10),
+        learner = A1.learnerLossVector,
+        best_expert = A1.expertsLossMatrix[best_expert_index, :]
+        )
+    )
+
+df_long = pd.melt(df, ['time'])
+
+sns.relplot(x = "time", y = "value", hue = "variable", kind = "line", data = df_long)
+
+plt.savefig("png/best-expert-loss.png")
